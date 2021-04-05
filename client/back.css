@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: darkblue;
+}
+img.clear{ 	
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.filtre{
+	color:darkblue;
+	font-size:20px;
+}
+h2
+{
+	text-align: center;
+	color:darkblue;
+	font-size: 35px;
+}
+h3 {
+    text-align: center;
+    font-size: 35px;
+    color: lightblue;
+}
+h4 {
+    font-size: 25px;
+}
+
+.indicProduit{
+  font-size:20px;
+  color: orange;
+}
+.indic50{
+  font-size:20px;
+  color: orange;
+}
+.indic90{
+  font-size:20px;
+  color: orange;
+}
+.indic95{
+  font-size:20px;
+  color: orange;
+}
+.reponseIndic{
+  font-size:20px;
+  color: grey;
+}

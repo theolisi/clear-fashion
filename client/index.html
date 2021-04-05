@@ -1,70 +1,99 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>👕 Clear Fahion | Environmentally & human-friendly clothes</title>
-  </head>
-  <body>
-    <h1>Clear fashion</h1>
-    <section id="options">
-      <div id="show">
-        <label for="show-select">Show:</label>
-        <select name="show" id="show-select">
-          <option value="12">12</option>
-          <option value="24">24</option>
-          <option value="48">48</option>
-        </select>
-      </div>
-      <div id="page">
-        <label for="page-select">Go to page:</label>
-        <select name="page" id="page-select"> </select>
-      </div>
-      <div id="filters">
-        <span>By reasonable price</span>
-        <span>By recently released</span>
-        <div id="brand">
-          <label for="brand-select">By brands:</label>
-          <select name="brand" id="brand-select"> </select>
+<html lang="en">
+<head>
+	<title>👕 Clear Fahion | Environmentally & human-friendly clothes</title>
+	<meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="back.css">
+</head>
+
+<body>
+  <h1>👕 Clear Fahion | Environmentally & human-friendly clothes 👕</h1>
+  <!--Section Options-->
+			<section class="option">
+				<span class="title-pattern">
+					<h2>Options</h2>
+				</span>
+
+        <!--Number of products to show-->
+
+				<div id="show" class="div-select">
+					<span class="label-select">Show</span>
+					<select name="show" id="show-select" class="selection-2">
+						<option value="12">12</option>
+						<option value="24">24</option>
+						<option value="48">48</option>
+					</select>
+				</div>
+
+        <!--Select the page to render-->
+
+				<div id="page" class="div-select">
+					<span class="label-select">Choose your page</span>
+					<select name="page" id="page-select" class="selection-2">
+					</select>
         </div>
-      </div>
-      <div id="sort">
-        <label for="sort-select">Sort:</label>
-        <select name="sort" id="sort-select">
-          <option value="price-asc">Cheaper</option>
-          <option value="price-desc">Expensive</option>
-          <option value="date-asc">Recently released</option>
-          <option value="date-desc">Anciently released</option>
-        </select>
-      </div>
-    </section>
-    <section id="indicators">
-      <h2>Indicators</h2>
-      <div>
-        <span>Number of products</span>
-        <span id="nbProducts">0</span>
-      </div>
-      <div>
-        <span>Number of new products</span>
-        <span>0</span>
-      </div>
-      <div>
-        <span>p50 price value</span>
-        <span>0</span>
-      </div>
-      <div>
-        <span>p90 price value</span>
-        <span>0</span>
-      </div>
-      <div>
-        <span>p95 price value</span>
-        <span>0</span>
-      </div>
-      <div>
-        <span>Last released date</span>
-        <span>2020-01-01</span>
-      </div>
-    </section>
-    <section id="products"></section>
-    <script type="text/javascript" charset="UTF-8" src="portfolio.js"></script>
-  </body>
+        
+        <!--Select the brand-->
+
+				<div id="brand" class="div-select">
+					<span class="label-select">Select your brand</span>
+					<select name="brand" id="brand-select" class="selection-2">
+					</select>
+				</div>
+
+
+				<div id="sort" class="div-select">
+					<span class="label-select">Sort</span>
+					<select name="sort" id="sort-select" class="selection-2">
+						<option value="----">----</option>
+						  <option value="price-asc">Cheaper</option>
+						  <option value="price-desc">Expensive</option>
+						  <option value="date-asc">Recently released</option>
+						  <option value="date-desc">Anciently released</option>
+					</select>
+				</div>
+
+				<div id="reasonableprice">
+					<input type="checkbox" id="reasonable-price" name="price">
+					<label for="scales">By reasonable price</label>
+				</div>   
+				
+				<div id="recentlyreleased">
+					<input type="checkbox" id="recently-released" name="released">
+					<label for="scales">By recently released</label>
+				</div>
+			</section>
+
+			<section id='indicators' class='indicators'>
+				<span class="title-pattern">Indicators</span>
+				<div class='indicator'>
+					<span>• Number of products:</span>
+					<span id="nbProducts">0</span>
+				</div>
+				<div class='indicator'>
+					<span>• Number of new products:</span>
+					<span id="nbNewProducts">0</span>
+				</div>
+				<div class='indicator'>
+					<span>• P50 price value:</span>
+					<span id="p50">0</span>
+				</div>
+				<div class='indicator'>
+					<span>• P90 price value:</span>
+					<span id="p90">0</span>
+				</div>
+				<div class='indicator'>
+					<span>• P95 price value:</span>
+					<span id="p95">0</span>
+				</div>
+				<div class='indicator'>
+					<span>• Last released date:</span>
+					<span id='last-release'>2020-01-01</span>
+				</div>
+			</section>
+
+			<section id="products" class="products">
+			</section>
+	<script type="text/javascript" charset="UTF-8" src="portfolio.js"></script>
+</body>
 </html>

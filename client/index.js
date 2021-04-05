@@ -19,8 +19,6 @@ console.log(MY_FAVORITE_BRANDS[0]);
 
 
 
-
-
 /**
  * 🌱
  * Let's go with a very very simple first todo
@@ -34,9 +32,9 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // I can find on these e-shops
 // 2. Log the variable
 
-
-
-
+console.log("Q1");
+const link = 'link to the cheapest tee-shirt that we found on their website';
+console.log(link);
 
 /**
  * 👕
@@ -51,11 +49,38 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 1. Create a variable and assign it the number of products
 // 2. Log the variable
 
+//It's just the length of marketplace
+
+console.log("Q2");
+const length = marketplace.length;
+console.log(length);
+
 
 // 🎯 TODO: Brands name
 // 1. Create a variable and assign it the list of brands name only
 // 2. Log the variable
 // 3. Log how many brands we have
+
+console.log("Q3");
+
+const list_brand =[];
+var nb_brand = 0;
+
+marketplace.forEach((elem) =>{
+  if (list_brand.includes(elem.brand)){
+    null;
+  }
+  else{
+    list_brand.push(elem.brand);
+    nb_brand=nb_brand+1;
+  }
+})
+
+// Can use Set() also
+
+console.log("List of brands and the number")
+console.log(list_brand);
+console.log(nb_brand);
 
 
 // 🎯 TODO: Sort by price
@@ -64,23 +89,61 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 3. Log the variable
 
 
+marketplace.sort(function(a,b){
+  return a.price-b.price
+})
+
+console.table(marketplace);
+
 // 🎯 TODO: Sort by date
 // 1. Create a function to sort the marketplace objects by products date
 // 2. Create a variable and assign it the list of products by date from recent to old
 // 3. Log the variable
+
+function compare_date(a,b){
+  if (a.date < b.date)
+     return -1;
+  if (a.date > b.date)
+    return 1;
+  return 0;
+}
+
+marketplace.sort(compare_date);
+console.table(marketplace);
 
 
 // 🎯 TODO: Filter a specific price range
 // 1. Filter the list of products between 50€ and 100€
 // 2. Log the list
 
+function filter_price(marketplace){
+
+  var list_elem_50_100=[];
+
+  for (var i=0;i++;i<=marketplace.length){
+    if (marketplace[i].price>50 & marketplace[i].price<100){
+      list_elem_50_100.push(marketplace[i]);
+    }
+  }
+  return list_elem_50_100;
+}
+
+var res = new filter_price(marketplace);
+console.log(res);
+
 
 // 🎯 TODO: Average Basket
 // 1. Determine the average basket of the marketplace
 // 2. Log the average
 
+var sum_price = 0;
 
+marketplace.forEach((elem) =>{
+  sum_price=sum_price+elem.price;
+  }
+)
 
+console.log(sum_price/marketplace.length)
 
 
 /**
@@ -106,10 +169,40 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 2. Log the variable
 // 3. Log the number of products by brands
 
+const brands = {};
+
+marketplace.forEach((elem) =>{
+  try{
+    brands[elem.brand].push(elem);
+  }
+  catch{
+    brands[elem.brand]=[elem];
+  }
+})
+
+console.log(brands);
+
+
 
 // 🎯 TODO: Sort by price for each brand
 // 1. For each brand, sort the products by price, from highest to lowest
 // 2. Log the sort
+
+function compare_price(a,b){
+  if (a.price < b.price)
+     return 1;
+  if (a.price > b.price)
+    return -1;
+  return 0;
+}
+
+//use the last question
+
+for(var key in brands){
+  brands[key].sort(compare_price);
+}
+
+console.log(brands);
 
 
 // 🎯 TODO: Sort by date for each brand
@@ -117,7 +210,11 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 2. Log the sort
 
 
+for(var key in brands){
+  brands[key].sort(compare_date);
+}
 
+console.log(brands);
 
 
 /**
@@ -132,7 +229,7 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // The p90 value (90th percentile) is the lower value expected to be exceeded in 90% of the products
 
 
-
+// ????? //
 
 
 /**
@@ -207,20 +304,49 @@ const COTELE_PARIS = [
 // // 1. Log if we have new products only (true or false)
 // // A new product is a product `released` less than 2 weeks.
 
+var diff;
+
+COTELE_PARIS.forEach(elem => {
+  diff=Math.trunc((Date.parse(elem.released)-Date.now())/1000*3600*24);
+  if(diff<14){
+    console.log(elem.name);
+  }
+})
+
 
 // 🎯 TODO: Reasonable price
 // // 1. Log if coteleparis is a reasonable price shop (true or false)
 // // A reasonable price if all the products are less than 100€
+
+var res = true;
+
+COTELE_PARIS.forEach(elem => {
+  if(elem.price>=100){
+    res=false;
+  }
+})
+
+console.log(res);
 
 
 // 🎯 TODO: Find a specific product
 // 1. Find the product with the uuid `b56c6d88-749a-5b4c-b571-e5b5c6483131`
 // 2. Log the product
 
+COTELE_PARIS.forEach(elem => {
+  if(elem.uuid==`b56c6d88-749a-5b4c-b571-e5b5c6483131`){
+    console.log(elem.name);
+  }
+})
+
 
 // 🎯 TODO: Delete a specific product
 // 1. Delete the product with the uuid `b56c6d88-749a-5b4c-b571-e5b5c6483131`
 // 2. Log the new list of product
+
+var filtered = COTELE_PARIS.filter(elem => elem.uuid != 'b56c6d88-749a-5b4c-b571-e5b5c6483131');
+console.log(filtered);
+
 
 // 🎯 TODO: Save the favorite product
 let blueJacket = {
@@ -237,6 +363,11 @@ jacket.favorite = true;
 // 1. Log `blueJacket` and `jacket` variables
 // 2. What do you notice?
 
+console.log(blueJacket);
+console.log(jacket);
+
+//Both variables inherit from the favorite property
+
 blueJacket = {
   'link': 'https://coteleparis.com/collections/tous-les-produits-cotele/products/la-veste-bleu-roi',
   'price': 110,
@@ -244,9 +375,6 @@ blueJacket = {
 };
 
 // 3. Update `jacket` property with `favorite` to true WITHOUT changing blueJacket properties
-
-
-
 
 
 /**
