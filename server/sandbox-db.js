@@ -39,9 +39,6 @@ async function sandbox () {
     console.log(`👕 ${results.length} results of promises found`);
     console.log(`👕 ${results.flat().length} products found`);
 
-    console.log(results);
-    console.log(results.flat());
-
     products.push(results.flat());
     products = products.flat();
 
@@ -51,18 +48,22 @@ async function sandbox () {
 
     console.log('\n');
 
+    const connect = db.getDB();
+
     const result = await db.insert(products);
 
     console.log(`💽  ${result.insertedCount} inserted products`);
 
     console.log('\n');
 
-    console.log('💽  Find Loom products only');
+    
+    console.log('💽  Find Dedicated products only');
 
-    const loomOnly = await db.find({'brand': 'loom'});
+    const loomOnly = await db.find({'brand': 'dedicated'});
 
-    console.log(`👕 ${loomOnly.length} total of products found for Loom`);
+    console.log(`👕 ${loomOnly.length} total of products found for dedicated`);
     console.log(loomOnly);
+    
 
     db.close();
   } catch (e) {
